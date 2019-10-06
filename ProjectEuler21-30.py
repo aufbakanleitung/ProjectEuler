@@ -1,5 +1,4 @@
 import timeit
-from root.PE14 import teller
 from lib2to3.fixer_util import Number
 def principal_period(s): #numerical repetition finder 
     i = (s+s).find(s, 1, -1)

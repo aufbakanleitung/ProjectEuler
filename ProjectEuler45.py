@@ -8,9 +8,13 @@
 # Find the next triangle number that is also pentagonal and hexagonal.
 
 
+def triangle_nr(n):
+    Tn = (n**2 + n) / 2
+    return int(Tn)
+
+
 def is_triangle(Tn):
     d = (8 * Tn + 1)**0.5
-
     if d % 1 != 0:
         return False
     else:
@@ -20,7 +24,6 @@ def is_triangle(Tn):
         else:
             return False
 
-print(is_triangle(5))
 
 def is_pentagonal(Pn):
     d = (24 * Pn + 1)
@@ -33,6 +36,11 @@ def is_pentagonal(Pn):
         return False
 
 
+def hexa_nr(n):
+    Hn = 2*n**2 - n
+    return int(Hn)
+
+
 def is_hexagonal(Hn):
     d = (8 * Hn + 1)
     n = (1 + d**0.5)/4
@@ -43,11 +51,11 @@ def is_hexagonal(Hn):
         return False
 
 
-def find_answer(rangex):
-    for a in range(rangex):
-        if is_triangle(a):
-            if is_pentagonal(a):
-                if is_hexagonal(a):
-                    print(a, "is a triangle number that is also pentagonal and hexagonal")
+def find_answer(n_range):
+    for a in range(n_range):
+        triangle = triangle_nr(a)
+        if is_pentagonal(triangle):
+            if is_hexagonal(triangle):
+                print(triangle, "is a triangle number that is also pentagonal and hexagonal")
 
 find_answer(5000000000)
